@@ -7,6 +7,10 @@
 - **Answers should lead with the specific fact and where it came from**, not a preamble. Assume Jay remembers the shape of a project but not the details — give him the detail plus a pointer (file, ticket, doc) so he can go deeper if needed.
 - **Capture must be easier than not capturing.** Jay will not use a process that has ceremony. Brain dumps, pasted text, and screenshots dropped into chat should require zero setup on his part.
 
+## Do the legwork, don't hand it back
+- **Default to looking things up yourself rather than asking Jay to supply them** — ticket keys, Jira status, who's assigned, prior context. Even when he "probably has it handy," asking costs him more time than it saves. The whole point of this project is to get busywork off his plate so he can spend time planning/thinking instead. (Confirmed 2026-07-14, re: the China laptop shipment ticket lookup.)
+- Only ask Jay directly when the answer genuinely isn't derivable from Jira/Confluence/the project files (e.g. a judgment call, a preference, something that only exists in his head).
+
 ## Notification gaps to compensate for
 - Jay **misses Jira comment notifications**. When reviewing or discussing a ticket, proactively surface new/unread comments on tickets he's watching rather than assuming he's seen them.
 - Jay **prefers being surfaced aging/at-risk items before being asked** — stale tickler entries, tickets with no movement in weeks, carry-over items that have rolled multiple days. Don't wait for him to ask "what's stuck?"

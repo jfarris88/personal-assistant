@@ -46,6 +46,7 @@
 * **Rachel James**: U&A (User & Access) — driving the On24 GDPR anonymization automation effort with Flex 4; reaching out to Jay/Help Desk/Live Events to hook up the Groot → On24 automation. See [On24 Anonymization Automation](../notes/on24-anonymization-automation.md).
 * **Susan Strom**: Added as a courtesy invite (per Shawn Storc) to the On24 anonymization automation discussion.
 * **Patrick Devine**: Assignee/closer on manual On24/OLT GDPR anonymization tickets (e.g. SOL-101033) before the Flex 4 automation existed.
+* **Michelle Chen**: Remote employee (China) awaiting a Windows laptop shipment — profile setup blocked on her providing her password so it can be imaged before shipping. See tickler item #14.
 
 *(Add more as they come up)*
 
