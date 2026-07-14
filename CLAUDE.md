@@ -1,6 +1,6 @@
 # Claude Code Instructions — Personal Assistant Project
 
-This project is Jay Farris's personal assistant system at O'Reilly Media. Read `SYSTEM_PROMPT.md` for the full system context and workflow.
+This project is Jay Farris's personal assistant system at O'Reilly Media. Read `SYSTEM_PROMPT.md` for the full system context and workflow, and `README.md` for the folder map. Read `knowledge/working-style.md` every session — it covers how Jay works and how to work with him.
 
 ## Key Behavior Rules
 
@@ -13,6 +13,8 @@ This project is worked on by multiple AI systems — **Claude, Gemini, and ChatG
 - **Links to read/investigate later** → `knowledge/research-links.md`
 - **Session handoffs to other AI systems** → `handoff/YYYY-MM-DD-HHMM-llm-topic.md`
 - **One-off notes** → `notes/kebab-case-title.md`
+- **Screenshots dropped in chat or in `inbound/screenshots/`** → follow `skills/process_screenshot.md`
+- **Any other file dropped in `inbound/`** → follow `skills/process_inbound.md`
 
 The goal is that any AI system (or Jay himself) opening this project should have full context without relying on Claude's session memory.
 

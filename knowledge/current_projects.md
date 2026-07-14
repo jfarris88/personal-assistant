@@ -1,13 +1,15 @@
 # Current Projects
 
-*This file acts as the long-term memory for active projects. Keep this updated as priorities change.*
+*This file acts as the long-term memory for active projects. Keep this updated as priorities change. Keep each project to a ~10-line summary — move deep detail to a linked `notes/` file.*
 
 ## 1. Personal Assistant System (Project Agy)
+* **Status:** Active
 * **Description:** Setting up Antigravity (Claude Code) to act as a personal executive assistant.
 * **Key Goals:** Capture brain dumps, parse tasks/insights, integrate with Jira/Confluence via MCP.
 * **Jira:** No dedicated project key yet — track in ITOPS if needed.
 
 ## 2. AI Native Initiative — **HOT PRIORITY** (as of 2026-06-23)
+* **Status:** Active
 * **Description:** O'Reilly is actively working toward becoming an **"AI Native company."** The immediate focus is determining which AI tools each employee needs and ensuring the right people have the right access.
 * **Current AI Tool Landscape:**
   * **ChatGPT Enterprise** — assigned to all employees via Okta (company-wide rollout complete as of June 2026)
@@ -28,18 +30,20 @@
 * **Active ticket:** `TOOLS-379` — Vercel AI tooling request (In Progress).
 
 ## 3. Gong / Amplemarket Integration (HD-37515)
+* **Status:** Waiting-on (meeting to be scheduled)
 * **Description:** Thomas McIntosh (Salesforce Admin) requested integration between Gong and Amplemarket. Meeting events tracked by Amplemarket that Gong transcribes would have the transcription added to Amplemarket for additional context on companies/leads/contacts.
-* **Status:** Security reviewed and approved (Jeff Powell, June 17). Currently assigned to Michael Seneschal.
+* **Current State:** Security reviewed and approved (Jeff Powell, June 17). Currently assigned to Michael Seneschal.
 * **Next Step:** Jay to coordinate a meeting with **Keith Swafford, Thomas McIntosh, Dean Roman, and Jay** to discuss.
 * **Jira:** [HD-37515](https://intranet.oreilly.com/jira/browse/HD-37515)
 
 ## 4. IT Operations Day-to-Day
+* **Status:** Active (ongoing)
 * **Description:** Ongoing IT operations work including help desk support, access management, and GCP IAM support for engineering teams.
 * **Key Goals:** Keep the ticket queue moving across HD, AM, and SOL.
 * **Jira Projects:**
   * `HD` — Help Desk (general support requests) — primary
   * `AM` — Access Management (provisioning/deprovisioning) — primary
-  * `SOL` — (add description) — primary
+  * `SOL` — Inbound triage queue: anything comes in here first so it can be routed to the right project/team — primary
   * `ITOPS` — IT Operations and Infrastructure Engineering — secondary
   * `NHT` — Offboarding/terminations — ⚠️ **AI ACCESS NOT APPROVED** (sensitive employee data — do not query)
 
@@ -47,6 +51,7 @@
 When a user leaves, Okta automatically creates tickets to offboard them from SaaS apps. These are generated as sub-tickets attached to the parent `NHT` (offboarding) ticket for that user. AI systems should not access NHT tickets directly.
 
 ## 5. Atlassian Cloud Migration
+* **Status:** Active
 * **Description:** Migrating O'Reilly's Atlassian stack (Jira, Confluence, Crowd, Service Management) to Atlassian cloud. Contract with vendor **Sentify** is about to be signed (as of 2026-06-25). Kickoff will follow once Sentify is on board.
 * **Slack Channel:** `#atlassian-cloud-migration` (created June 22, 2026 by Dean Roman)
 * **Vendor:** Sentify — vendor has no PjM; O'Reilly must provide their own
@@ -60,6 +65,7 @@ When a user leaves, Okta automatically creates tickets to offboard them from Saa
 * **Future:** Plan to stand up a **fresh Confluence space for the IT/Helpdesk team's internal documentation** as part of the cloud migration — clean slate rather than migrating legacy content. Several docs currently scattered in Google Docs and legacy Confluence Data Center pages (e.g., [create_ro_database_user.sh runbook](https://docs.google.com/document/d/1XgwrQGx0ucy1gEMSzPcFXjAl-CgNQNweh08TycWZQVA/edit?tab=t.0), [Adding SSH keys for Linux system authentication](https://intranet.oreilly.com/confluence/pages/viewpage.action?pageId=79135041)) should be relocated there once the space exists. Running tracker: [confluence-cloud-migration-candidates.md](../notes/confluence-cloud-migration-candidates.md).
 
 ## 6. MCP Server Infrastructure
+* **Status:** Background (mostly closed out)
 * **Description:** Building and maintaining MCP (Model Context Protocol) server infrastructure, including a GCP VM in the Helpdesk project and Okta service account integration for Cypress.
 * **Key Goals:** Stable MCP server environment for AI tooling; Okta/SSO service account for `mcp` is approved and in progress.
 * **Jira:** `AM-2364` (Cypress okta service account — **Closed** as of 2026-06-25), `ITOPS-38920` (GCP VM — Closed).
@@ -70,17 +76,17 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
   * **Offboarding automation** — query a departing employee's live Okta app assignments directly instead of working NHT sub-tickets one SaaS app at a time; pre-flag or auto-action deprovisioning steps.
   * **MFA/Okta Verify compliance checks** — pull live phishing-resistant MFA enrollment status (WebAuthn/passkey/Okta Verify) per app on demand, instead of one-off exported lists (e.g. the Salesforce Okta Verify spreadsheet from HD-37517) — reusable for future enforcement waves on other apps.
   * **Provisioning error triage** — look up a user's Okta profile/assignment errors directly (e.g. the RingCentral UK-number provisioning error for a recent new hire, raised in standup) instead of manual digging in the Okta admin console.
-* Raised with Dean in 1-1 on 2026-07-02 — see [daily/2026-07-02.md](../daily/2026-07-02.md).
+* Raised with Dean in 1-1 on 2026-07-02 — see [daily/2026-07-02.md](../daily/2026-07-02.md). Also tracked on the "ask Dean" running list — see `tickler.md`.
 
-## 9. Finance Dashboard — "OpEx Command Center"
+## 7. Finance Dashboard — "OpEx Command Center"
+* **Status:** Active
 * **Description:** Internal Finance reporting dashboard built by **Michael Trice** (Senior Financial Analyst) to replace the team's manual Google Sheets reporting process. Also referred to internally as the "Finance Dashboard" or "finance app."
-* **Stack:** React/Vite frontend (port 3000), Node/Express backend proxy (port 3001); data source is Google Sheets via a GCP service account (project `orm-finance-prod`), with plans to write forecast data back to Sheets under individual-user OAuth attribution.
-* **Hosting/Auth:** Okta SSO (SPA app, Authorization Code + PKCE), modeled after the Data Science team's setup (`data-science-apps.corp.oreilly.com`). Target URL: `finance-apps.corp.oreilly.com`. Okta groups: `finance-admin`, `finance-Sales`, `finance-Marketing`, `finance-Content_Services`, `finance-G_A`, `finance-Tech_Engineering`, `finance-Product`, `finance-Legal_HR`.
-* **Repo:** `oreillymedia/finance-platform` (private GitHub repo, Michael Trice primary owner, Data Science team has write access).
-* **Data access:** BigQuery read access to `data-prod-378016` distribution layer (usage, Salesforce, Zuora, finance/EBS data) — granted to Michael Trice first, then mirrored to other Finance/FP&A team members.
-* **Jira trail:** [ITOPS-43901](https://intranet.oreilly.com/jira/browse/ITOPS-43901) (SSO+hosting request) → [HD-37037](https://intranet.oreilly.com/jira/browse/HD-37037) (GitHub repo) → [HD-37428](https://intranet.oreilly.com/jira/browse/HD-37428) (Okta app provisioning) → [HD-37462](https://intranet.oreilly.com/jira/browse/HD-37462)/[HD-37572](https://intranet.oreilly.com/jira/browse/HD-37572) (Okta group user adds) → [DAP-4268](https://intranet.oreilly.com/jira/browse/DAP-4268)/[HD-37491](https://intranet.oreilly.com/jira/browse/HD-37491) (BigQuery access) → [AM-2412](https://intranet.oreilly.com/jira/browse/AM-2412) (Datadog API key, current as of 2026-07-08).
+* **Next Step:** No open action for Jay currently — access/infra requests are progressing through their Jira trail.
+* **Details:** Stack, hosting, auth, and full Jira trail moved to [finance-dashboard-opex.md](../notes/finance-dashboard-opex.md).
+* **Jira:** Latest — [AM-2412](https://intranet.oreilly.com/jira/browse/AM-2412) (Datadog API key, current as of 2026-07-08). Full trail in the linked note.
 
 ## 8. ProQuest Mulesoft API — Order Posting Integration
+* **Status:** Active
 * **Description:** Building an external API in **Mulesoft Anypoint** for vendor **ProQuest** to post orders into O'Reilly's Salesforce instance. Currently securing the API endpoints (raised by the Salesforce admin, 2026-07-06).
 * **Auth options considered:**
   * **Okta as OAuth 2.0 IdP** — ruled out; O'Reilly's Okta tenant is workforce/internal-only, not appropriate for authenticating an external vendor's server-to-server calls (no separate B2B/customer-identity org exists for this purpose).
@@ -90,7 +96,8 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
 * **Recommendation given (2026-07-06):** For this single-vendor, machine-to-machine order-posting use case, Basic Client ID Enforcement + compensating controls (mutual/two-way TLS, IP allowlist restricted to ProQuest's egress IPs, rate limiting/throttling policy) is a pragmatic fit — avoid exposing Okta or Salesforce to an external party. If O'Reilly expects to onboard more external partners this way, revisit and invest in the self-hosted Mule OAuth 2.0 Provider for real token expiry/revocation/scopes.
 * **Jira:** none yet
 
-## 10. On24 GDPR Anonymization Automation
+## 9. On24 GDPR Anonymization Automation
+* **Status:** Waiting-on (meeting to be scheduled)
 * **Description:** GDPR PRIV data-deletion requests need to check/anonymize users in **On24** (webinar/live-events platform) and **OLT** (Online Training Slack workspace). Current automation ([gdpr-priv-automation](https://github.com/oreillymedia/gdpr-priv-automation) repo) only checks whether the user still exists and updates the linked Jira ticket — it does not actually anonymize anything, and On24/OLT are not among the repo's automated closers (handled manually today, e.g. [SOL-101033](https://intranet.oreilly.com/jira/browse/SOL-101033)).
 * **Development (2026-07-10):** **Flex 4** (external team) has built automation to actually anonymize On24 users, hooking into existing U&A automation. Previously on hold; now resumed and extended to cover **external event attendees (non-Groot users)** — the main previous gap. **Rachel James** (U&A) asked whether Jay is ready to hook up the Groot → On24 automation to this, and is scheduling a meeting with U&A, Help Desk, and Live Events reps (**Susan Strom** added as a courtesy per Shawn Storc).
 * **Jay's position:** yes in principle, but need to nail down the integration contract first — trigger mechanism/auth, sync vs. async confirmation, Groot↔On24 identity mapping (esp. for non-Groot attendees), failure/retry handling, and a test/pilot plan before going live on real GDPR requests.
@@ -98,7 +105,8 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
 * **Next step:** Attend/prep for the meeting Rachel is scheduling; confirm date once invite lands.
 * **Jira:** [SOL-101033](https://intranet.oreilly.com/jira/browse/SOL-101033) (example closed ticket, for reference)
 
-## 7. Helpdesk Standup Notes — Confluence v2.0 (Jay's personal space pilot)
+## 10. Helpdesk Standup Notes — Confluence v2.0 (Jay's personal space pilot)
+* **Status:** Active
 * **Description:** Replacing the running "Helpdesk Standup Notes & Agenda" Google Doc (6+ years of history, ~4,700 lines, one entry per weekday with plain Jira links and freeform notes) with a Confluence **Live page** in Jay's personal Cloud space (space name "Jay Farris", spaceId `13107203` on `oreillymedia.atlassian.net`). Built ahead of the full [Atlassian Cloud Migration](#5-atlassian-cloud-migration) as a personal pilot — not yet the org-wide IT/Helpdesk space mentioned in that section.
 * **Source doc:** Google Doc `1jPZ2PzGtiDBMmReDH0vZGLCd7E4Q1Tfo6tBn9ro7D6M` — read via the `gcp-helpdesk-prod-dsadmin@helpdesk-prod-1.iam.gserviceaccount.com` service account (creds in 1Password, Helpdesk vault, item `gcp-helpdesk-prod-dsadmin@...`; the actual JSON key is a **file attachment** on that item, not a text field). Jay shared the doc with that service account directly.
 * **Design decisions (confirmed with Jay 2026-07-01):**
@@ -111,5 +119,6 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
 * **Pages created:**
   - Live page: "Helpdesk Standup" (id `13434881`, parent: "Overview" id `13107295`) — [webui link](https://oreillymedia.atlassian.net/wiki/spaces/~5bf49087da94df18b4d49b9b/pages/13434881/Helpdesk+Standup)
   - Archive child page: "Helpdesk Standup Archive" (id `13664257`, parent: the Live page above)
-* **Status:** Layout/functionality v1 built and live as of 2026-07-01, seeded with example rows (not yet backfilled with real content from the Doc — Jay said not to pull everything over yet, just get the structure right first).
-* **Technical notes for future work:** Confluence Cloud API access for this space uses a **granular-scoped API token** (1Password item `oibcpx6fliyowhyqfc3bvute4e`, "Confluence API token (under my account)", Employee vault) — must be called through the `api.atlassian.com/ex/confluence/{cloudId}` gateway (not the site domain directly), using the **v2 REST API** (`/wiki/api/v2/...`). Classic combined scopes (`read:confluence-content.all` etc.) do NOT work for this — granular scopes only (`write:page:confluence`, `read:space:confluence`, `read:page:confluence`, etc.), and classic scopes can't create live pages at all (v2-only feature). Live pages use **`atlas_doc_format` (ADF)** as their body representation, not `storage`. Config lives in [.env](../.env) at the project root (`CONFLUENCE_URL`, `CONFLUENCE_CLOUD_ID`, `CONFLUENCE_API_BASE`, `CONFLUENCE_EMAIL`, `CONFLUENCE_API_TOKEN` as an `op://` reference, `CONFLUENCE_PERSONAL_SPACE_ID`/`KEY`) — resolve secrets at runtime with `op run --env-file=.env -- <command>`.
+* **Next Step:** Layout/functionality v1 built and live as of 2026-07-01, seeded with example rows — not yet backfilled with real content from the Doc (Jay said not to pull everything over yet, just get the structure right first).
+* **Details:** Confluence Cloud API access technicals for this space moved to [confluence-cloud-api-access.md](../notes/confluence-cloud-api-access.md).
+* **Jira:** none

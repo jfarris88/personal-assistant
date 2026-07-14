@@ -1,4 +1,8 @@
 .env
 .DS_Store
-inbound/
+inbound/*
+!inbound/README.md
+!inbound/screenshots/
+inbound/screenshots/*
+!inbound/screenshots/.gitkeep
 

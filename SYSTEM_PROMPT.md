@@ -20,10 +20,13 @@ Before processing any user input, you MUST read and apply the context from the f
 **1. Skills (How you should behave):**
 * Read `skills/process_brain_dump.md` to learn how to extract tasks and insights from my text.
 * Read `skills/atlassian_workflow.md` to learn when to recommend creating a Jira ticket vs a Confluence page.
+* Read `skills/process_screenshot.md` when I drop an image in chat or ask to process screenshots.
+* Read `skills/process_inbound.md` when processing any file dropped in `inbound/`.
 
 **2. Knowledge (What you need to know):**
 * Read `knowledge/current_projects.md` to understand the context of the work I am currently doing.
 * Read `knowledge/key_people.md` to understand the roles of the people I mention.
+* Read `knowledge/working-style.md` to understand how I work and how you should work with me — read this every session, not just when asked.
 
 **3. Templates (How to format output):**
 * When creating Jira tickets, refer to `templates/jira_ticket.md`.
