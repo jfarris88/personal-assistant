@@ -15,7 +15,8 @@
 
 ## Management & Leadership
 * **Dean Roman** (`droman`): VP, Information Systems — Jay's manager; sent company-wide ChatGPT rollout email
-* **Julie Baron** (`jbaron`): President — requested Claude admin/reporting dashboard access again after it was changed when billing moved to Jay's team, plus org-wide ChatGPT admin/reporting view (AM-2431, filed 2026-07-10)
+* **Julie Baron** (`jbaron`): President — **her requests always take priority over other work.** Requested Claude admin/reporting dashboard access again after it was changed when billing moved to Jay's team, plus org-wide ChatGPT admin/reporting view (AM-2431, filed 2026-07-10)
+* **Baaqir Yusuf**: Anthropic contact — Dean Roman's point of contact for questions about what changes on O'Reilly's Claude account once the Enterprise Agreement is signed (seat management options, etc.). See AI Native Initiative in `current_projects.md`.
 
 ## Known Colleagues
 * **Mike Loukides** (`mikel`): VP, Content Strategy — frequent helpdesk submitter; recurring Sophos/WiFi issues on travel
@@ -42,11 +43,17 @@
 * **Desi Gonzalez**: ID (Instructional Design) team — driving the feedback-service microfeedback UAT effort (SOL-106969); requested QA/Prod admin access for the ID team.
 * **Charlotte Ames**: ID team — involved in the microfeedback UAT decision-making with Desi Gonzalez.
 * **Illana Stanley**: Doing e2e QA testing of quiz microfeedback for the feedback-service rollout.
-* **Aaron Sumner** (`asumner`): Engineering — involved in Atlas documentation; was assigned to document the Atlas account expiration fix (OREILLYSTAFF vs OREILLYUK registration codes)
+* **Aaron Sumner** (`asumner`): Engineering — involved in Atlas documentation; was assigned to document the Atlas account expiration fix (OREILLYSTAFF vs OREILLYUK registration codes). Also raised the local machine backup policy question in `#team-eng-managers` (2026-07-16) on behalf of his team; built [gh-clone-team-repos](https://github.com/ruralocity/gh-clone-team-repos) (bulk-reclone a GitHub team's repos) after his own laptop died last year.
+* **Greg Crowder**: Engineering manager — started the `#team-eng-managers` thread on local machine backup policy (2026-07-16), prompted by a team member's laptop dying with uncommitted code loss; wants to raise it before the next MetaCon retro.
+* **Ben Kreeger**: Engineering — possibly involved in a past decision/discussion about excluding engineers' code directories from machine backups (reason: it was slowing them down). Jay to confirm by searching prior Slack history.
 * **Rachel James**: U&A (User & Access) — driving the On24 GDPR anonymization automation effort with Flex 4; reaching out to Jay/Help Desk/Live Events to hook up the Groot → On24 automation. See [On24 Anonymization Automation](../notes/on24-anonymization-automation.md).
 * **Susan Strom**: Added as a courtesy invite (per Shawn Storc) to the On24 anonymization automation discussion.
 * **Patrick Devine**: Assignee/closer on manual On24/OLT GDPR anonymization tickets (e.g. SOL-101033) before the Flex 4 automation existed.
 * **Michelle Chen**: Remote employee (China) awaiting a Windows laptop shipment — profile setup blocked on her providing her password so it can be imaged before shipping. See tickler item #14.
+* **Yasmina Greco** (`ygreco`): Working with Lindsay on a live cohort/event program (same effort as [HD-37306](https://intranet.oreilly.com/jira/browse/HD-37306)); requesting a Zoom Webinar Plus subscription for branded, recurring-meeting registration. See tickler item #15.
+* **Lindsay**: Working with Yasmina Greco on the live cohort event / Zoom Webinar Plus request. Last name not yet captured — confirm on next contact.
+* **Mace Bergmann** (`mbergmann`): Business Development — frequent helpdesk submitter (Okta/app access, RingCentral, laptop performance); had a BitLocker recovery on 2026-07-14 (Jay supplied the recovery key via Slack), device rebooted through a Secured Dell SafeBIOS prompt and came back up fine. No Jira ticket filed for this event as of 2026-07-14.
+* **Alon**: Rapid7 MDR contact (SOC/vendor side) — following up on non-ingesting event sources (DNS/DHCP/firewall). Last name not yet captured. See [Rapid7 MDR Environment Review](../notes/rapid7-mdr-environment-review-2026-07-14.md).
 
 *(Add more as they come up)*
 

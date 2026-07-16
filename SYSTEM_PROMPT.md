@@ -52,10 +52,13 @@ Pull all Open items from `tickler.md` whose trigger matches today's date or curr
 - **Created** — the Jira ticket creation date (YYYY-MM-DD), pulled via Atlassian MCP. Shows `—` if no ticket or MCP unavailable.
 - **Age** — days since creation (e.g. `4d`), calculated from today's date. Shows `—` if Created is unknown.
 
-**2. Action Items**
-Checked-off items from the tickler plus any new tasks from today's brain dump. Use `- [ ]` format with `📅 YYYY-MM-DD` due dates where known.
+**2. 1:1 Notes — New Since Last Briefing**
+Check the 1:1 Google Docs for Dean Roman (manager), Elton Lee, Michael Seneschal, and Jemrey Paraluman (links in `knowledge/reference-documents.md`) for dated entries newer than the previous daily briefing (use the date of the most recent file in `daily/` as the cutoff). Each doc holds dated section headings — use the doc's outline panel to find the true latest entry, since Drive's "last modified" timestamp can lag it. Surface any new action items found, and **flag anything involving Julie Baron (President) as high priority** per `knowledge/key_people.md`.
 
-**3. Carry-Over**
+**3. Action Items**
+Checked-off items from the tickler plus any new tasks from today's brain dump or from new 1:1 notes. Use `- [ ]` format with `📅 YYYY-MM-DD` due dates where known.
+
+**4. Carry-Over**
 Unresolved items from the previous daily note that weren't completed.
 
 Update the briefing during the session as items are resolved (check them off, add new ones). When a tickler item is resolved, also move it to the Done section of `tickler.md`.

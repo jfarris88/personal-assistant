@@ -24,7 +24,8 @@
     * **Product** — next in queue; sheet in progress; confirmed by Dean as of 2026-06-30
   * A **Use Cases tab** has been added to the tracking sheet so use cases can be listed by Department/Team.
   * Sheet being updated to include a brief summary of what each AI system does (all departments).
-  * Managing the Claude rollout: seat procurement, SSO/Okta integration, `orm-claude-antfarm` admin account, and user support. **Currently on Team plan** (144 seats, confirmed 2026-07-10) — Enterprise upgrade being considered/planned but not yet done. Team plan has no custom-role support: only Owner/Primary Owner can see Billing; Admin cannot. Custom roles (billing/analytics view-only without full admin) only become available after moving to Enterprise.
+  * Managing the Claude rollout: seat procurement, SSO/Okta integration, `orm-claude-antfarm` admin account, and user support. **Currently on Team plan** (144 seats, confirmed 2026-07-10) — Team plan has no custom-role support: only Owner/Primary Owner can see Billing; Admin cannot. Custom roles (billing/analytics view-only without full admin) only become available after moving to Enterprise.
+  * **Enterprise upgrade — in progress, Dean signing today (2026-07-16).** Dean Roman told Jay and Jamey Harvey (Slack, 2026-07-16 ~8am) he plans to sign the Enterprise Agreement today; asked Baaqir Yusuf (Anthropic contact) what changes after signing — Dean doesn't expect anyone to lose access, expects more user-management options. Dean asked Jay: (1) how many Claude users are needed based on the "AI Strategy for [Department]" sheets teams have been filling out, (2) what other teams still need to be accounted for, (3) whether 180 seats is enough to start (can increase anytime, so a rough number is fine — Dean wants to sign same-day). Jay's response/plan: only Sales and Finance/Accounting have been fully distributed the AI strategy sheet so far (Product already has broad Claude access separately); Jay will (a) pull the list of pending Claude access requests organized by department, (b) organize existing subscription users by department (see [Claude Subscriptions tab](https://docs.google.com/spreadsheets/d/1qV46CW_vHH9YtCr0pIsY77tK7cIxnCPB_TJKvLNmOP0) in the Ad Hoc userlist sheet — kept current via CSV export cross-referenced against the roster), and (c) compile Sales/Finance users specifically from the AI strategy sheets, to build a rough total seat count. **No action yet — wait for Jay's go-ahead before compiling/sending anything.**
 * **Key Goals:** Match AI tool assignments to actual employee needs; ensure Claude seats are provisioned correctly; SSO/Okta integration is stable.
 * **Jira:** Tickets tracked across `SYSPER` (seat purchases), `ITOPS` (SSO/infrastructure), `HD` (user support), `AM` (access requests).
 * **Active ticket:** `TOOLS-379` — Vercel AI tooling request (In Progress).
@@ -98,7 +99,7 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
 
 ## 9. On24 GDPR Anonymization Automation
 * **Status:** Waiting-on (meeting to be scheduled)
-* **Description:** GDPR PRIV data-deletion requests need to check/anonymize users in **On24** (webinar/live-events platform) and **OLT** (Online Training Slack workspace). Current automation ([gdpr-priv-automation](https://github.com/oreillymedia/gdpr-priv-automation) repo) only checks whether the user still exists and updates the linked Jira ticket — it does not actually anonymize anything, and On24/OLT are not among the repo's automated closers (handled manually today, e.g. [SOL-101033](https://intranet.oreilly.com/jira/browse/SOL-101033)).
+* **Description:** GDPR PRIV data-deletion requests need to check/anonymize users in **On24** (webinar/live-events platform) and **OLT** (Online Training Slack workspace). Current automation ([gdpr-priv-automation](https://github.com/oreillymedia/gdpr-priv-automation) repo) only checks whether the user still exists and updates the linked Jira ticket — it does not actually anonymize anything, and On24/OLT are not among the repo's automated closers (handled manually today, e.g. [SOL-101033](https://intranet.oreilly.com/jira/browse/SOL-101033)). **Confirmed 2026-07-15 by reading the repo directly:** the only automated ticket closers are `exactTarget.py` (ExactTarget) and `conf-mysql.py` (CONF/MySQL) — **SFDC is not a source system anywhere in this repo**, so SFDC PRIV tickets are also closed manually today, not automatically. Separately, [DAP-4584](https://intranet.oreilly.com/jira/browse/DAP-4584) (status: To Do as of 2026-07-15) is unrelated DB-layer work to make the `staging.sfdc_account` warehouse load actually anonymize PII — it does not close Jira tickets and hasn't shipped; it blocks Phase B work like [DAP-2487](https://intranet.oreilly.com/jira/browse/DAP-2487).
 * **Development (2026-07-10):** **Flex 4** (external team) has built automation to actually anonymize On24 users, hooking into existing U&A automation. Previously on hold; now resumed and extended to cover **external event attendees (non-Groot users)** — the main previous gap. **Rachel James** (U&A) asked whether Jay is ready to hook up the Groot → On24 automation to this, and is scheduling a meeting with U&A, Help Desk, and Live Events reps (**Susan Strom** added as a courtesy per Shawn Storc).
 * **Jay's position:** yes in principle, but need to nail down the integration contract first — trigger mechanism/auth, sync vs. async confirmation, Groot↔On24 identity mapping (esp. for non-Groot attendees), failure/retry handling, and a test/pilot plan before going live on real GDPR requests.
 * **Key docs:** Google Doc "On24 Anonymization Rollout" (Jay's copy: id `1BqBnYuVb81O_VgFd-adzJPbHD1nC5t2S3A12WSslsYc`). Full writeup: [on24-anonymization-automation.md](../notes/on24-anonymization-automation.md).
@@ -121,4 +122,45 @@ Need to ask whether we can connect an Okta MCP server to the AI assistant enviro
   - Archive child page: "Helpdesk Standup Archive" (id `13664257`, parent: the Live page above)
 * **Next Step:** Layout/functionality v1 built and live as of 2026-07-01, seeded with example rows — not yet backfilled with real content from the Doc (Jay said not to pull everything over yet, just get the structure right first).
 * **Details:** Confluence Cloud API access technicals for this space moved to [confluence-cloud-api-access.md](../notes/confluence-cloud-api-access.md).
+* **Jira:** none
+
+## 11. Managers Group Auto-Removal Automation
+* **Status:** Proposed (details pending from Jay)
+* **Description:** There's an existing automation that adds people to manager-related groups (e.g. `orm-all-managers@oreilly.com`, surfaced via the alias audit in [HD-37573](https://intranet.oreilly.com/jira/browse/HD-37573)) automatically based on changes to the latest roster. There is currently **no corresponding mechanism to remove people** from those groups when they're no longer managers — a gap Jay wants to close.
+* **Current process:** Driven through a Google Sheet with formulas (mechanics TBD — Jay to provide details).
+* **Next Step:** Jay to provide full details on the roster/sheet process and desired removal logic; then scope and open a Jira ticket to track the build.
+* **Jira:** none yet — raised 2026-07-14, no ticket created yet
+
+## 12. GitHub Service Account for Cloudbuild (oreillymedia-sales)
+* **Status:** Open (unassigned, P2)
+* **Description:** Dean Roman requested a GitHub service account in the `oreillymedia-sales` org, for use by Google Cloudbuild to pull and create builds. Builds run in the `orm-sales` GCP project.
+* **Next Step:** Needs assignment/pickup.
+* **Jira:** [HD-37642](https://intranet.oreilly.com/jira/browse/HD-37642)
+
+## 13.5 Engineer Local Machine Backup Policy Discussion
+* **Status:** Open (gathering backstory)
+* **Description:** In `#team-eng-managers` (2026-07-16), **Greg Crowder** raised — on behalf of his team, ahead of the next MetaCon retro — that only `~/Desktop`, `~/Documents`, and `~/Downloads` are covered by the local machine backup policy. Most engineers keep code in differently-named dirs (`~/code`, `~/repos`), so uncommitted/unpushed work isn't backed up; this surfaced when a team member's laptop died. Questions raised: standardize a code-dir name for backup purposes? Move code dirs under `~/Documents`? Document the decision in devdocs?
+* **Aaron Sumner's take:** believes backup software and git repos don't play nicely together, so the guidance has been to keep code out of backed-up directories — deferred to Jay to confirm. Also shared his own tool, [gh-clone-team-repos](https://github.com/ruralocity/gh-clone-team-repos), for bulk-recloning a GitHub team's repos after a machine loss.
+* **Jay's backstory (recalled, not yet verified):** engineers previously asked to have their code dir *excluded* from backup because it was slowing them down — **Ben Kreeger** may have been involved. Jay plans to search prior Slack history to confirm before responding in the thread.
+* **Next step:** Jay to search Slack for the earlier backup-exclusion discussion, then reply in `#team-eng-managers` with the historical context and a recommendation.
+* **Jira:** none
+
+## 14. Gemini Code Assist Code Review GitHub App Sunset
+* **Status:** Active — **deadline 2026-07-17 (tomorrow)**
+* **Description:** Google is sunsetting the consumer version of the Gemini Code Assist Code Review GitHub App. New org installations blocked since 2026-06-18; all code review activity officially ceases **2026-07-17**. 47 O'Reilly repos currently use this app (per Gary/Dean's GitHub check) — in use broadly across engineering, not just SRE.
+* **Options being investigated (Slack thread w/ Google/Insight reps, as of 2026-07-16):**
+  * Enterprise version of Gemini Code Assist on GitHub is a **separate/distinct product** from Gemini Code Assist Enterprise (per Google docs) — but in practice Devin found the Enterprise Cloud project console only lets you enable the whole Gemini Code Assist product, not just the Code Review piece. Contradiction not yet resolved.
+  * Arvind Vijayanand (Google) confirmed code review features **can** be enabled via an Enterprise Cloud project, and said there's a plan for **standalone pricing just for code review** — timeline unconfirmed, Arvind following up with Product team.
+  * Suggested path: set up **Developer Connect** to link GitHub to Google Cloud, following the Gemini Code Assist-specific setup doc (not the generic Developer Connect codelab) since the Code Review engine needs specific region routing/backend binding.
+  * Google's broader recommendation is their new "Antigravity 2.0" multi-agent platform / Gemini Enterprise Agent licensing — separate conversation, not a fix for the immediate deadline.
+* **Devin Cooley's read:** this is exiting SRE's realm and entering Solutions/Access Management territory (GCP + GitHub access management) — he flagged updating the existing Solutions ticket.
+* **Risk:** Kevin Graves (2026-07-16) warned that once the tool disappears at the deadline, expect support requests org-wide asking "what happened to it."
+* **Jira:** [HD-37632](https://intranet.oreilly.com/jira/browse/HD-37632) — Open, P2, assigned to **Michael Seneschal**.
+
+## 13. Rapid7 MDR Environment Review
+* **Status:** Active (recurring vendor review)
+* **Description:** Recurring review meeting with Rapid7 (MDR/SOC vendor) covering agent coverage, legacy OS agents, event source ingestion health, and cloud logging visibility.
+* **Latest meeting:** 2026-07-14. Agent count dropped to 769 (needs verification against decommissions). Mac full disk access error on Brad's device; Linux audit compatibility errors on 11 devices. Core event sources (DNS/DHCP/firewall) have ingestion errors — Alon following up. Google Cloud logging setup delayed pending Brad's availability; critical given O'Reilly's GCP footprint.
+* **Action items:** Elton to confirm Sophos event source/licensing status; team to review agent management page for stale/missing agents; Brad's Mac error + Linux team's audit errors to be resolved; Alon to clean up non-ingesting event sources; follow up with Brad on GCP logging + SCC event source config; regular review of custom detection tuning with SOC.
+* **Full notes:** [rapid7-mdr-environment-review-2026-07-14.md](../notes/rapid7-mdr-environment-review-2026-07-14.md)
 * **Jira:** none
