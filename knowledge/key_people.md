@@ -25,13 +25,13 @@
 * **Cynthia Saalfeld** (`csaalfeld`): Salesforce Sales Operations Specialist — reported HD-37479 (SSO/MFA compliance)
 * **Mike Boutté** (`mboutte`): Director, Product Design
 * **Shawn Storc** (`sstorc`): Project Manager — PE (Platform Engineering) team PM; also involved in Atlassian cloud migration. Point of contact for routing requests to PE.
-* **Brad Frank** (`bfrank`): Platform Engineering — PE team member; member of the `#atlassian-cloud-migration` Slack channel
-* **Justin Breninger** (`jbreninger`): Platform Engineering — handles GCP infrastructure work including service account creation/deletion in `platform-prod-399563` and `platform-dev-788014`; primary PE assignee for SA/IAM tasks
+* **Brad Frank** (`bfrank`): Platform Engineering — PE team member; member of the `#atlassian-cloud-migration` Slack channel. **Note (2026-07-17): does not own the DC Atlassian instance** — that's ITOps (see note below), not PE.
+* **Justin Breninger** (`jbreninger`): **Transferred out of Platform Engineering as of 2026-07-23** — no longer the go-to for GCP infra/SA/IAM tasks; previously handled service account creation/deletion in `platform-prod-399563` and `platform-dev-788014`. Need to find his replacement/successor for this work (surfaced when he was assumed to be the assignee for the AM-2475 gcloud reauth fix — he is not, since he's moved on).
 * **David Carroll** (`dcarroll`): Platform Engineering — handles RabbitMQ, Pub/Sub, and other platform infra requests
 * **David Buckley** (`dbuckley`): ITOPS — handles GCP Terraform work for DAP/data-* projects (Cloud Run, Pub/Sub infrastructure)
 
 * **Angela Rufino** (`arufino`): Development Editor, Prod Dev Content — asked whether WIP manuscripts are considered non-restricted content under the ChatGPT usage policy
-* **Heather Polzin**: Nooks admin/owner — point of contact for Nooks licensing and SSO setup; coordinating with Nooks team on free admin seat for IT procurement account
+* **Heather Polzin** (`hpolzin`): Director, Global Sales Development — Nooks admin/owner, point of contact for Nooks licensing and SSO setup, coordinating with Nooks team on free admin seat for IT procurement account. Filed [HD-37652](https://intranet.oreilly.com/jira/browse/HD-37652) requesting the Salesforce Slackbot integration be turned on for team pipeline/performance reporting.
 * **Jamey Harvey**: Finance/billing contact — Nooks invoices should be routed to him (currently not receiving them); also the person who assigns hardware tasks (requires a Jira ticket with full details before assigning)
 * **Theodore Moser** (`tmoser`): Project Manager — building signal-iq internal intelligence dashboard for leadership; requested service account API keys (AM-2301) for Jira, Anthropic, Productboard, Cortex, Smartsheet, Workfront, Amplitude; uses Anthropic to process/analyze aggregated project data
 * **Vicky Dutkiewicz**: Contact for G&A and Operations AI use cases sheet
@@ -54,6 +54,7 @@
 * **Lindsay**: Working with Yasmina Greco on the live cohort event / Zoom Webinar Plus request. Last name not yet captured — confirm on next contact.
 * **Mace Bergmann** (`mbergmann`): Business Development — frequent helpdesk submitter (Okta/app access, RingCentral, laptop performance); had a BitLocker recovery on 2026-07-14 (Jay supplied the recovery key via Slack), device rebooted through a Secured Dell SafeBIOS prompt and came back up fine. No Jira ticket filed for this event as of 2026-07-14.
 * **Alon**: Rapid7 MDR contact (SOC/vendor side) — following up on non-ingesting event sources (DNS/DHCP/firewall). Last name not yet captured. See [Rapid7 MDR Environment Review](../notes/rapid7-mdr-environment-review-2026-07-14.md).
+* **Sanjay Khona**: Engineering — building **Agent Zero**, an internal agentic ticket-resolution system (three projects: slack-to-jira-integration, research-agent, coding-agent). Meeting with Jay (and Dean, at Dean's request) to discuss his design/process and what's reusable for Jay's AI-assisted access management request idea. See `current_projects.md` #17.
 
 *(Add more as they come up)*
 

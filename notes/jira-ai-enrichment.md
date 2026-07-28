@@ -197,3 +197,5 @@ This makes the comment invisible to the reporter and visible only to users with 
 **Idea / Not started** — filed 2026-06-24
 
 **Inbound Enrichment sub-idea** added 2026-06-30
+
+**Extension — Helpdesk Standup agenda surfacing** added 2026-07-21 — Jay wants this kind of context surfaced directly on the Confluence Helpdesk Standup Live page agenda item (project #10 in [current_projects.md](../knowledge/current_projects.md)), not just as a Jira comment: each day's items grouped into status sections (e.g. Pending Approval), with a plain-language summary plus AI-inferred analysis (related tickets, ownership/routing context, whether a business justification was even given) shown up front. Motivating example: [AM-2464](https://intranet.oreilly.com/jira/browse/AM-2464).
